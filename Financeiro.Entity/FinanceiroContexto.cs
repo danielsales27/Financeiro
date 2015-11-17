@@ -10,7 +10,7 @@ namespace Financeiro.Entity
 {
     public class FinanceiroContexto : DbContext
     {
-        public override void OnModelCreating(DbModelBuilder modelBuilder)
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             var mapReceita = modelBuilder.Entity<Receita>();
             mapReceita.Property(x => x.Receita_Id)

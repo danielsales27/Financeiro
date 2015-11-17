@@ -8,7 +8,7 @@ namespace Financeiro
 {
     public class Despesa
     {
-        public int Receita_Id { get; set; }
+        public int Despesa_Id { get; set; }
         public string Nome { get; set; }
         public float Valor { get; set; }
         public string Categoria { get; set; }

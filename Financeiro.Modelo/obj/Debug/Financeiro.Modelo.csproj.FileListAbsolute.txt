@@ -1,5 +1,4 @@
 C:\Users\DanielSales\Desktop\Financeiro\Financeiro.Modelo\bin\Debug\Financeiro.Modelo.dll
 C:\Users\DanielSales\Desktop\Financeiro\Financeiro.Modelo\bin\Debug\Financeiro.Modelo.pdb
-C:\Users\DanielSales\Desktop\Financeiro\Financeiro.Modelo\obj\Debug\Financeiro.Modelo.csprojResolveAssemblyReference.cache
 C:\Users\DanielSales\Desktop\Financeiro\Financeiro.Modelo\obj\Debug\Financeiro.Modelo.dll
 C:\Users\DanielSales\Desktop\Financeiro\Financeiro.Modelo\obj\Debug\Financeiro.Modelo.pdb
