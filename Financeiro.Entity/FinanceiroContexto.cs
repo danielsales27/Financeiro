@@ -50,5 +50,9 @@ namespace Financeiro.Entity
             mapDespesa.HasKey(x => x.Despesa_Id);
             mapDespesa.ToTable("Despesa");
         }
+
+        public System.Data.Entity.DbSet<Financeiro.Despesa> Despesas { get; set; }
+
+        public System.Data.Entity.DbSet<Financeiro.Receita> Receitas { get; set; }
     }
 }
