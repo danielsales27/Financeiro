@@ -1,57 +1,90 @@
-﻿@model IEnumerable<Financeiro.Despesa>
-
-@{
+﻿@{
     ViewBag.Title = "Index";
 }
 
 <h2>Index</h2>
 
+@section scripts{
+        
+    <script src="~/Scripts/knockout-2.2.0.js"></script>
+    <script src="~/Scripts/knockout-2.2.0.debug.js"></script>
+    <script type="text/javascript">
+
+        function formatCurrency(value) {
+            return "$" + value.toFixed(2);
+        }
+
+        function DespesaViewModel() {
+
+            var self = this;
+
+            self.Despesa_Id = ko.observable("");
+            self.Nome = ko.observable("");
+            self.Valor = ko.observable("");
+            self.Categoria = ko.observable("");
+            self.Data = ko.observable("");
+            self.Observacao = ko.observable("");
+
+            var Despesa = {
+                Despesa_Id: self.Despesa_Id,
+                Nome: self.Nome,
+                Valor: self.Valor,
+                Categoria: self.Categoria,
+                Data: self.Data,
+                Observacao: self.Observacao
+            };
+
+            self.Despesa = ko.observable();
+            self.Despesas = ko.observableArray();
+
+            $.ajax({
+                url: '@Url.Action("Index", "Despesas")',
+                cache: false,
+                type: 'GET',
+                contentType: 'application/json; charset=utf-8',
+                data: {},
+                success: function (data) {
+                    self.Despesas(data);
+                }
+            });
+        }
+
+        var viewModel = new DespesaViewModel();
+        ko.applyBindings(viewModel);
+
+    </script>
+}
+
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @*@Html.ActionLink("Create New", "Create")*@
+    <a href="#" onclick="$('#Create').dialog();">Create</a>
 </p>
-<table class="table">
+<table class="table" id="GridIndex" data-bind="visible: Despesas().length > 0">
     <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Nome)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Valor)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Categoria)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Data)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Observacao)
-        </th>
+        <th>Despesa_Id</th>
+        <th>Nome</th>
+        <th>Valor</th>
+        <th>Categoria</th>
+        <th>Data</th>        
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Nome)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Valor)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Categoria)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Data)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Observacao)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Despesa_Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Despesa_Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Despesa_Id })
-        </td>
-    </tr>
-}
+    <tbody data-bind="foreach: Despesas">
+        <tr>
+            <td data-bind="text: Despesa_Id"></td>
+            <td data-bind="text: Nome"></td>
+            <td data-bind="text: formatCurrency(Valor)"></td>
+            <td data-bind="text: Categoria"></td>
+            <td data-bind="text: Data"></td>            
+            <td>
+                <button data-bind="click: $root.Edit">Edit</button>
+                <button data-bind="click: $root.Details">Details</button>
+                <button data-bind="click: $root.Delete">Delete</button>
+                @*@Html.ActionLink("Edit", "Edit", new { id = .Despesa_Id }) |
+                @Html.ActionLink("Details", "Details", new { id = item.Despesa_Id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.Despesa_Id })*@
+            </td>
+        </tr>
+    </tbody>
 
 </table>
