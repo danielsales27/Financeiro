@@ -1,4 +1,8 @@
 ﻿
+function formatCurrency(value) {
+    return "$" + value.toFixed(2);
+}
+
 function DespesaViewModel() {
 
     var self = this;
@@ -23,7 +27,7 @@ function DespesaViewModel() {
     self.Despesas = ko.observableArray();
 
     $.ajax({
-        url: '@Url.Action("Index", "Despesas")',
+        url: '@Url.Action("GetDespesas")',
         cache: false,
         type: 'GET',
         contentType: 'application/json; charset=utf-8',
@@ -32,5 +36,8 @@ function DespesaViewModel() {
             self.Despesas(data);
         }
     });
+
+    var viewModel = new DespesaViewModel();
+    ko.applyBindings(viewModel);
 
 }

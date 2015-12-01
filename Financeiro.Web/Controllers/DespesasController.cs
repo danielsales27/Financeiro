@@ -15,10 +15,26 @@ namespace Financeiro.Web.Controllers
     {
         private FinanceiroContexto db = new FinanceiroContexto();
 
-        // GET: Despesas
         public ActionResult Index()
         {
-            return View(db.Despesas.ToList());
+            return View();
+        }
+        
+        // GET: Despesas
+        public JsonResult GetDespesas()
+        {
+            var dados = from i in db.Despesas.ToList()
+                        select new
+                        {
+                            i.Despesa_Id,
+                            i.Nome,
+                            Valor = i.Valor,
+                            i.Categoria,
+                            Data = i.Data.ToShortDateString(),
+                            i.Observacao
+                        };
+
+            return Json(dados, JsonRequestBehavior.AllowGet);
         }
 
         // GET: Despesas/Details/5
@@ -53,7 +69,8 @@ namespace Financeiro.Web.Controllers
             {
                 db.Despesas.Add(despesa);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                //return RedirectToAction("Index");
+                return Json(db.Despesas, JsonRequestBehavior.AllowGet);
             }
 
             return View(despesa);

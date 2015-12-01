@@ -1,4 +1,3 @@
-C:\Users\DanielSales\Desktop\Financeiro\Financeiro.Entity\obj\Debug\Financeiro.Entity.csprojResolveAssemblyReference.cache
 C:\Users\DanielSales\Desktop\Financeiro\Financeiro.Entity\bin\Debug\Financeiro.Entity.dll.config
 C:\Users\DanielSales\Desktop\Financeiro\Financeiro.Entity\bin\Debug\Financeiro.Entity.dll
 C:\Users\DanielSales\Desktop\Financeiro\Financeiro.Entity\bin\Debug\Financeiro.Entity.pdb
@@ -8,5 +7,6 @@ C:\Users\DanielSales\Desktop\Financeiro\Financeiro.Entity\bin\Debug\Financeiro.M
 C:\Users\DanielSales\Desktop\Financeiro\Financeiro.Entity\bin\Debug\Financeiro.Modelo.pdb
 C:\Users\DanielSales\Desktop\Financeiro\Financeiro.Entity\bin\Debug\EntityFramework.xml
 C:\Users\DanielSales\Desktop\Financeiro\Financeiro.Entity\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\DanielSales\Desktop\Financeiro\Financeiro.Entity\obj\Debug\Financeiro.Entity.csprojResolveAssemblyReference.cache
 C:\Users\DanielSales\Desktop\Financeiro\Financeiro.Entity\obj\Debug\Financeiro.Entity.dll
 C:\Users\DanielSales\Desktop\Financeiro\Financeiro.Entity\obj\Debug\Financeiro.Entity.pdb
